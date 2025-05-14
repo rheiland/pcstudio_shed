@@ -1,0 +1,5 @@
+categories:
+- InteractiveTools
+description: build and simulate a PhysiCell model
+name: physicell_studio
+owner: rheiland
