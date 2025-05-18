@@ -1,5 +1,8 @@
 categories:
 - InteractiveTools
 description: build and simulate a PhysiCell model
+long_description: build and simulate a PhysiCell model
 name: physicell_studio
 owner: rheiland
+remote_repository_url: https://github.com/rheiland/pcstudio_shed
+homepage_url: https://github.com/rheiland/pcstudio_shed
