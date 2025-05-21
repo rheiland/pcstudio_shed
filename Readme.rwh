@@ -12,4 +12,20 @@ https://planemo.readthedocs.io/en/latest/readme.html#quick-start
 (planemo_venv) (base) M1P~/git/studio_dev$ pip install planemo
 Collecting planemo
 
+--------
+https://planemo.readthedocs.io/en/master/publishing.html#up
+
+(planemo_venv) (base) M1P~/git/pcstudio_shed$
+  570  mv  interactivetool_pcstudio.xml interactivetool_pcstudio-0.xml
+  571  git pull
+  572  gadd interactivetool_pcstudio.xml .shed.yml 
+  573  gcommit "update"
+  574  gpush
+  575  planemo shed_diff --shed_target testtoolshed
+  576  planemo shed_update --check_diff --shed_target testtoolshed
+  577  planemo shed_test --shed_target testtoolshed
+  578  ls -a
+  579  ty .shed.yml 
+  581  ty interactivetool_pcstudio.xml
+
 
