@@ -1,5 +1,5 @@
 categories:
 - InteractiveTools
-description: build and simulate a PhysiCell model
+description: Create, simulate, and visualize a PhysiCell model
 name: physicell_studio
 owner: rheiland
