@@ -22,8 +22,9 @@ https://planemo.readthedocs.io/en/master/publishing.html#up
   573  gcommit "update"
   574  gpush
   575  planemo shed_diff --shed_target testtoolshed
-  576  planemo shed_update --check_diff --shed_target testtoolshed
-  577  planemo shed_test --shed_target testtoolshed
+  576  planemo shed_update --check_diff --shed_target testtoolshed   # this updates it in TTS
+
+  577  planemo shed_test --shed_target testtoolshed   # don't really need to test I guess
   578  ls -a
   579  ty .shed.yml 
   581  ty interactivetool_pcstudio.xml
