@@ -1,7 +1,7 @@
 <tool id="interactive_tool_pcstudio" tool_type="interactive" name="PhysiCell Studio" version="@VERSION@" profile="22.05">
     <description>Interactive tool to create, simulate, and visualize a multicellular model using PhysiCell</description>
     <macros>
-        <token name="@VERSION@">0.3</token>
+        <token name="@VERSION@">0.5</token>
     </macros>
     <icon src="pcstudio_logo.png" />
     <requirements>
@@ -57,8 +57,8 @@ A graphical tool to create, execute, and visualize a multicellular model using P
 ]]>
     </help>
     <citations>
-        <citation type="doi">10.1371/journal.pcbi.1005991</citation>
+        <citation type="doi">10.1016/j.cell.2025.06.048</citation>
         <citation type="doi">10.46471/gigabyte.128</citation>
-        <citation type="doi">10.1101/2023.09.17.557982</citation>
+        <citation type="doi">10.1371/journal.pcbi.1005991</citation>
     </citations>
 </tool>
