@@ -10,7 +10,6 @@
     <entry_points>
         <entry_point name="PhysiCell Studio" requires_domain="True">
             <port>5800</port>
-            <url><![CDATA[/vnc.html?resize=remote&autoconnect=true]]></url>
         </entry_point>
     </entry_points>
     <environment_variables>
