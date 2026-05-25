@@ -1,5 +1,14 @@
-
 - I did all the planemo stuff (to the testtoolshed) from my Mac, not Ubuntu:
+
+4/15/26 - try to fix the noVNC setting:
+https://docs.google.com/document/d/1IEbbRHwWqcAwbjpv369I-Y3LJh2hsOdWWGQDfa5VPOQ/edit?tab=t.0#heading=h.6e2cp075op6a
+-->
+(planemo_venv) (base) M1P~/git/pcstudio_shed$ diff interactivetool_pcstudio.xml interactivetool_pcstudio.xml-5
+13d12
+<             <url><![CDATA[/vnc.html?resize=remote&autoconnect=true]]></url>
+(planemo_venv) (base) M1P~/git/pcstudio_shed$ 
+
+---------------------------------------------
 
 https://planemo.readthedocs.io/en/latest/readme.html#quick-start
 (base) M1P~/git/studio_dev$ python -m venv ~/planemo_venv
@@ -11,25 +20,73 @@ https://planemo.readthedocs.io/en/latest/readme.html#quick-start
 /Users/heiland/planemo_venv/bin/pip
 (planemo_venv) (base) M1P~/git/studio_dev$ pip install planemo
 Collecting planemo
-
 --------
 https://planemo.readthedocs.io/en/master/publishing.html#up
 
-(planemo_venv) (base) M1P~/git/pcstudio_shed$
-  570  mv  interactivetool_pcstudio.xml interactivetool_pcstudio-0.xml
+# backup current:
+(planemo_venv) (base) M1P~/git/pcstudio_shed$ cp interactivetool_pcstudio.xml interactivetool_pcstudio.xml-4
   571  git pull
+- edit to update latest token version:
+        <token name="@VERSION@">0.6</token>
+
   572  gadd interactivetool_pcstudio.xml .shed.yml 
   573  gcommit "update"
   574  gpush
 
+# just tests for diffs:
 planemo shed_diff --shed_target testtoolshed
 planemo shed_diff --shed_target toolshed
 
-  576  planemo shed_update --check_diff --shed_target testtoolshed   # this updates it in TTS
+----------
+- MOST IMPORTANT:
+(planemo_venv) (base) M1P~/git/pcstudio_shed$  planemo shed_update --check_diff --shed_target testtoolshed   # this updates it in TTS
+...
+Repository physicell_studio updated successfully.
+Repository metadata updated successfully for repository 'physicell_studio' on the test Tool Shed.
+----------
 
-  577  planemo shed_test --shed_target testtoolshed   # don't really need to test I guess
+- MOST IMPORTANT:
+(planemo_venv) (base) M1P~/git/pcstudio_shed$  planemo shed_update --check_diff --shed_target toolshed   # this updates it in TS
+...
+Repository physicell_studio updated successfully.
+Repository metadata updated successfully for repository 'physicell_studio' on the main Tool Shed.
+-----------
+
+- Don't bother:
+  577  planemo shed_test --shed_target testtoolshed   # don't test! (takes too long?) 
   578  ls -a
   579  ty .shed.yml 
   581  ty interactivetool_pcstudio.xml
+============================================================
 
+from Junhao in my Dec.log '25:
+Junhao Qiu
+12:51 PM (16 minutes ago)
+to me, Junhao, Enis
 
+I’ve created a PR [https://github.com/galaxyproject/usegalaxy-tools/pull/1272] to update your tool on usegalaxy.org.
+
+To do this, I:
+
+1) Forked the repo.
+2) Followed the README to create a virtual environment and install all required dependencies.
+3) Followed the README to run `make TOOLSET=usegalaxy.org fix`, or alternatively ran `make update-trusted OWNER=rheiland` (this only updates your tool, so you don’t need to choose files to commit from many updated files).
+4) Committed the changes, created the PR, and waited for review.
+
+Hope that makes sense.
+
+-->
+(base) M1P~/git/usegalaxy-tools$ ll
+total 40
+drwxr-xr-x  100 heiland  staff  3200 Dec 19 11:50 cloud/
+-rw-r--r--    1 heiland  staff   150 Dec 19 11:50 CODEOWNERS
+-rw-r--r--    1 heiland  staff  1076 Dec 19 11:50 LICENSE
+-rw-r--r--    1 heiland  staff  2282 Dec 19 11:50 Makefile
+-rw-r--r--    1 heiland  staff  3991 Dec 19 11:50 README.md
+-rw-r--r--    1 heiland  staff    83 Dec 19 11:50 requirements.txt
+drwxr-xr-x   15 heiland  staff   480 Dec 19 11:50 scripts/
+drwxr-xr-x  104 heiland  staff  3328 Dec 19 11:50 test.galaxyproject.org/
+drwxr-xr-x  172 heiland  staff  5504 Dec 19 11:50 usegalaxy.org/
+(base) M1P~/git/usegalaxy-tools$ gwhich
+origin  git@github.com:rheiland/usegalaxy-tools.git (fetch)
+--------------------------------------------------------------------------------
